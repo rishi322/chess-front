@@ -75,7 +75,7 @@ export class PlayerTwoBoardComponent {
 
     ////display pieces on start
     const newGame = true;
-    this.webSocketService.socket$ = webSocket('ws://localhost:7070'); // Establish WebSocket connection 
+    this.webSocketService.socket$ = webSocket('wss://chess-backend-1-gt42.onrender.com'); // Establish WebSocket connection 
     // Subscribe to the incoming messages from the WebSocket server 
     this.webSocketService.socket$.subscribe(
       (message) => {

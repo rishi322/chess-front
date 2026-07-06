@@ -38,7 +38,7 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.sockeServices.sock$ = webSocket('ws://localhost:7070');
+    this.sockeServices.sock$ = webSocket('wss://chess-backend-1-gt42.onrender.com');
     const chessPieceImages = [
       "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png",
       "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wk.png",
