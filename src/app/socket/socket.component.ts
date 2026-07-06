@@ -24,7 +24,7 @@ export class SocketComponent implements OnInit {
     this.todos = this.webSocketService.getTodoArr();
   }
   ngOnInit() {
-    this.webSocketService.socket$ = webSocket('ws://chess-backend-1-gt42.onrender.com'); // Establish WebSocket connection 
+    this.webSocketService.socket$ = webSocket('wss://chess-backend-1-gt42.onrender.com'); // Establish WebSocket connection 
     // Subscribe to the incoming messages from the WebSocket server 
     this.webSocketService.socket$.subscribe(
       (message) => {
@@ -54,7 +54,7 @@ export class SocketComponent implements OnInit {
   }
   connectWebSocket() {
     // Establish WebSocket connection 
-    this.webSocketService.socket$ = webSocket('ws://chess-backend-1-gt42.onrender.com');
+    this.webSocketService.socket$ = webSocket('wss://chess-backend-1-gt42.onrender.com');
     this.webSocketService.socket$.subscribe(
       (message) => {
         this.isConnected = true;
