@@ -16,8 +16,8 @@ export class MoveService {
   private todoArr: string[] = [];
   public sock$!:WebSocketSubject<any>
   connect() {
-    this.socket$ = webSocket('ws://localhost:7070'); 
-    this.sock$ = webSocket("ws://localhost:7070")
+    this.socket$ = webSocket('wss://chess-backend-1-gt42.onrender.com'); 
+    this.sock$ = webSocket("wss://chess-backend-1-gt42.onrender.com")
     // Replace with your WebSocket server URL 
   }
   disconnect() {
@@ -63,7 +63,7 @@ export class MoveService {
   }
 
   findAndJoinGame(url:string,joiny:any){
-    return this.http.post<any>("http://localhost:3000/games/joinGame",{gameId:url,player2:joiny});
+    return this.http.post<any>("https://chess-backend-b044.onrender.com/games/joinGame",{gameId:url,player2:joiny});
    }
   getTodoArr(): string[] {
     return this.todoArr;
