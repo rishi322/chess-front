@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 const config: SocketIoConfig = {
-  url: `http://localhost:3000`, // Use 'http' instead of 'ws' for Socket.IO
+  url: `https://chess-backend-b044.onrender.com`, // Use 'http' instead of 'ws' for Socket.IO
   options: {
     transports: ['websocket'], // Use only WebSocket transport
 // Automatically connect on initialization
