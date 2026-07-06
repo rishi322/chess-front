@@ -14,14 +14,14 @@ import { FormsModule } from '@angular/forms';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
-const config: SocketIoConfig = {
-  url: `https://chess-backend-b044.onrender.com`, // Use 'http' instead of 'ws' for Socket.IO
-  options: {
-    transports: ['websocket'], // Use only WebSocket transport
-// Automatically connect on initialization
-    // Additional options...
-  },
-};
+// const config: SocketIoConfig = {
+//   url: `https://chess-backend-b044.onrender.com`, // Use 'http' instead of 'ws' for Socket.IO
+//   options: {
+//     transports: ['websocket'], // Use only WebSocket transport
+// // Automatically connect on initialization
+//     // Additional options...
+//   },
+// };
 
 import { FenconverterComponent } from './fenconverter/fenconverter.component';
 import { SocketComponent } from './socket/socket.component';
@@ -54,7 +54,7 @@ import { ScomponentComponent } from './scomponent/scomponent.component';
   imports: [FormsModule,
     BrowserModule,
     AppRoutingModule,DragDropModule,
-    SocketIoModule.forRoot(config),
+    // SocketIoModule.forRoot(config),
     HttpClientModule
   ],
   providers: [],
