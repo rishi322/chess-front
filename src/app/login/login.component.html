@@ -1,0 +1,39 @@
+
+
+
+<div class="imageback"></div>
+<div id="particles-js" style="position:absolute;width:100%;height:100%" > </div>
+<div id="particles-js-2" style="position:absolute;width:100%;height:100%"> </div>
+
+<div id="particles-js-3" style="position:absolute;width:100%;height:100%"> </div>
+<div id="particles-js-4"  style="position:absolute;width:100%;height:100%"> 
+</div>
+    <div class="container" style="width:500px;" >
+        <div class="row">
+
+            <img style="margin-left:0%;position:absolute;" src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png'
+                height="150" width="150">
+            <p class="neonText"
+                style=" position:absolute;padding:0.9%;font-size: 105px;margin-left:5.5%;font-weight: 800;">Chess</p>
+        </div>
+        <form style="position:absolute; margin-top:12%;">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                     style="color:white;font-weight: 800;font-size:20px;">Email address</label>
+                <input type="text" class="form-control" [(ngModel)]="user.email"name='name' id="exampleInputEmail1" style="border-color:transparent;border-bottom:1px solid white;background-color:transparent;width:200%;"placeholder ="Enter your email">
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                    style="color:white;font-weight: 800;font-size:20px;">Password</label>
+                <input type="password" class="form-control" [(ngModel)]="user.password" name="password" id="exampleInputPassword1" style="border-color:transparent;border-bottom:1px solid white ;background-color:transparent;width:200%;"placeholder ="Enter your password">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label for="exampleInputEmail1" class="form-label"
+                    style="color:white;font-weight: 800;">Email address</label>
+            </div>
+           
+            <button type="button" class="buttonSub" (click)="verifyUser()"><span class="login">Start</span><img src="/assets/images/play.png" alt="asd"width="250" height="300"></button>
+        </form>
+    </div>

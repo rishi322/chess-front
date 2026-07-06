@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* chessboard.component.css */
+.chessboard {
+    display: grid;
+    background-color:#ebecd0;
+    grid-template-columns: repeat(8, 62.5px);
+    grid-template-rows: repeat(8, 62.5px);
+    width: 500px;
+    height: 500px;
+    margin-top:23px;
+    margin-left:6.1%;
+    border-radius: 5px;
+  }
+ 
+  .square {
+    width: 62.5px;
+    height: 62.5px;
+  }
+  
+  .even {
+    background-color: #779556;
+  }
+  
+  .odd {
+    background-color: #779556;
+  }
+
+  .chess-piece{
+    padding:5px;
+    color:rgb(56, 56, 56);
+   
+  }
+  .msg{
+    color:white;
+  }
+  .item{
+    background-color: #f4f4f4;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  }
+  .pawn{
+    position: absolute;
+    z-index: 9;
+
+    border: 1px solid #d3d3d3;
+    text-align: center;
+  }
+  
+    </style>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="chessboard" id = 'board'>
+
+    </div>
+        <div 
+        class="square"  [ngClass]="{ 'even': isEven && !even, 'odd': !isEven && even}" >
+        
+        </div></div>
+        
+</body>
+<script>
+
+$(document).ready(()=>{
+  
+    console.log('hi')
+    for(let i = 0;i <8; i++){
+        for (let j = 0; j < 8; j++){
+            if(i % 2 == 0 && j % 2 != 0){
+                $(".chessboard").append(`<div $draggable 
+        class="square even"id="`+ i + j + `" id='board'  > `+i + j +`
+        </div>`)
+            } else if (i %2 !=0 && j %2 == 0 ){
+                $(".chessboard").append(`<div 
+        class="square even"id="`+ i + j + `"  > `+i + j +`
+        </div>`)
+            } else if(i % 2 != 0 && j % 2 != 0){
+                $(".chessboard").append(`<div 
+        class="square "id="`+ i + j + `"  > `+i + j +`
+        </div>`)
+            } else {
+                $(".chessboard").append(`<div 
+        class="square "id="`+ i + j + `"  > `+i + j +`
+        </div>`)
+            }
+
+        }
+    }
+    $('#board').draggable();
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+})
+
+
+</script>
+</html>

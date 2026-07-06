@@ -1,0 +1,57 @@
+/* chessboard.component.css */
+.chessboard {
+    display: grid;
+    background-color:transparent;
+    grid-template-columns: repeat(8, 62.5px);
+    grid-template-rows: repeat(8, 62.5px);
+    width: 500px;
+    height: 500px;
+    margin-top:23px;
+    margin-left:6.1%;
+    border-radius: 5px;
+  }
+ 
+  .square {
+    width: 62.5px;
+    height: 62.5px;
+    background-color: rgba(225, 225, 225, 0.5);
+  }
+  
+  .even {
+    background-color: rgba(69, 118, 172, 0.5);
+  }
+  
+  .odd {
+    background-color: rgba(69, 118, 172, 0.5);
+  }
+
+  .chess-piece{
+    width: 62.5px;
+    height: 62.5px;
+    padding:8.5px;
+    margin-left:0;
+    color:rgb(56, 56, 56);
+   
+  }
+  
+  .msg{
+    color:white;
+    margin-left:125px;
+    margin-top:2px;
+    margin-bottom:-10px;
+
+  }
+  .item{
+    background-color: #f4f4f4;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  }
+  .pawn{
+    position: absolute;
+    z-index: 9;
+
+    border: 1px solid #d3d3d3;
+    text-align: center;
+  }
+  

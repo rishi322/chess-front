@@ -1,0 +1,70 @@
+
+
+
+<!-- chessboard.component.html -->
+
+
+<div class="container">
+  
+<h1 style="align-items: center;color:white; font-weight: 600;
+font-family: Verdana, Geneva, Tahoma, sans-serif;">
+  Chess FEN CONVERTER
+</h1>
+  <input type="text" [(ngModel)]="fenStr" id="fenStr"  placeholder="Enter Fen String">
+  
+  <br>
+  <button (click)="fenConverter()" class="buttonHover" id= "buttonHover"> Convert</button>
+  <div class="chessboard board-layout-chessboard">
+    <div *ngFor="let row of [1, 2, 3, 4, 5, 6, 7, 8];let i = index; let even = even">
+      <div *ngFor="let col of [1, 2, 3, 4, 5, 6, 7, 8]; let isEven = even">
+        <div class="square" cdkDropList #chessboardList="cdkDropList" [cdkDropListData]="[row,col]"
+        id="sqaure"
+          [cdkDropListConnectedTo]="[chessboardList]" (cdkDropListDropped)="handlePieceMovement($event,row,col)"
+          [ngClass]="{ 'even': isEven && !even, 'odd': !isEven && even }">
+      
+            <div cdkDrag  (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col"  [attr.clickMove]="clickMove ? 'true' : 'false'"
+            (click)="clickMove ? movePiece(row,col) : showLegalMoves(row, col)" id="{{row}},{{col}}"
+              [cdkDragDisabled]="!isDraggable" class="chess-piece" [ngClass]="{row,col}">
+              <img cdkDragHandle (cdkDragStarted)="LegalMoves(row,col)"  *ngIf=" getChessPiece(row, col) == 'BP'&& col==2"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bp.png' height="50" width = "50">
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col)=='BK'  && col==1"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png' height="50"width='50' >
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col)=='BR'  && col==1"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/br.png' height="50"width='50' >
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col)=='BW'  && col==1"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bw.png' height="50"width='50' >
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col)=='BN'  && col==1"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bn.png' height="50"width='50' >
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col)=='BB'  && col==1"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bb.png' height="50"width='50' >
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col)=='BQ'  && col==1"  src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bq.png' height="50"width='50' >
+
+
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col) == 'WR'&& col==8" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wr.png' width="50" height="50">
+             
+
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col) == 'WN'&& col==8" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wn.png' width="50" height="50">
+              
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col) == 'WB'&& col==8" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wb.png' width="50" height="50">
+              
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col) == 'WK'&& col==8" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wk.png' width="50" height="50">
+              
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col) == 'WQ'&& col==8" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wq.png' width="50" height="50">
+              
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)" [cdkDragData]="row +' '+ col" *ngIf="getChessPiece(row,col) == 'WP'&& col==8" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png' width="50" height="50">
+              <img cdkDrag (cdkDragStarted)="LegalMoves(row,col)"  [cdkDragData]="row +' '+ col" *ngIf=" getChessPiece(row, col) == 'WP'&& col==7" src = 'https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png' width="45" height="45">
+           
+
+            
+           
+          
+              
+            </div>
+         
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+ 
+
+
+
+
+

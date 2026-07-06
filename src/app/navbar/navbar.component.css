@@ -1,0 +1,34 @@
+li{
+    color:white;
+    list-style:none;
+    font-weight:700;
+    margin-top:15px;
+
+}
+
+.nav{
+    width:11.4%;
+    height:625px;
+    background-color:#262522;
+    overflow-y:scroll;
+    padding:20px;
+}
+/* Customize the scrollbar and track */
+::-webkit-scrollbar {
+    width: 2px; /* Adjust to make the scrollbar thinner or wider */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #000; /* Black color for the scrollbar thumb */
+    border-radius: 3px; /* Rounded edges for the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333; /* Darker color on hover */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #ddd; /* Track color */
+    border-radius: 4px; /* Rounded edges for the track */
+  }
+  

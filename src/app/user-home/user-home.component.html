@@ -1,0 +1,61 @@
+<div class="imageback"></div>
+<div id="particles-js" style="position:absolute;width:100%;height:100%"> </div>
+<div id="particles-js-2" style="position:absolute;width:100%;height:100%"> </div>
+
+<div id="particles-js-3" style="position:absolute;width:100%;height:100%"> </div>
+<div id="particles-js-4" style="position:absolute;width:100%;height:100%">
+</div>
+<div>
+   
+    <button class="mx-5" style="position:relative;float:right;margin-top:5.5%" (click)="logout()"> logout</button>
+    <span  style="position:relative;float:right;margin-top:5.3%;color:white;margin-right:-10px;font-size:20px;font-weight: 700;" >{{user_name}}</span>
+</div>
+<div class="card mx-5" style="width: 23rem;margin-top: 5%;;position:absolute;">
+
+    <div class="card-header">
+        History
+    </div>
+
+    <div id="scroll-history">
+
+
+    <ul class="list-group list-group-flush"  *ngFor="let x of history">
+        <li class="list-group-item">{{x.player2}} vs {{x.creater}} (Code: {{x.gameId}} )</li>
+    </ul>
+</div>
+</div>
+<div class="container" style="width:500px;">
+    <div class="row">
+
+        <img style="margin-left:0%;position:relative;"
+            src='https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png' height="150" width="150">
+        <p class="neonText" style=" position:absolute;padding:0.9%;font-size: 105px;margin-left:5.5%;font-weight: 800;">
+            Chess</p>
+        <div class="container" style="margin-top:12%;position:absolute">
+            <h1 style="color:white">Players Online: {{onlineUsers}}</h1>
+
+            <button class="my-2" (click)="play()">Create a game and play with a friend</button>
+
+            <br>
+            
+
+            <input *ngIf="joinGame === true" class="" [(ngModel)]="url" type="tel" name="url" width="2000" id=""
+                placeholder="enter code">
+
+            <button class="mx-2" (click)="join()">Play a friend</button>
+
+            <br>
+            <button (click)="playwithc()">Play with Computer</button>
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+<div style="position:relative;border-radius:20px;">
+
+    <span style="float:right;margin-right:3%;margin-top:-3%;"><app-new-board></app-new-board></span>
+</div>
